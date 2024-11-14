@@ -20,24 +20,27 @@ Child workflow definition (json format) in `outputs.parameters.codefresh-io-chil
 
 ### Submit a workflow 
 ```
-apiVersion: argoproj.io/v1alpha1
-kind: Workflow
-metadata:
-  generateName: argo-workflows-submit-workflow-
-spec:
-  entrypoint: main
-  templates:
-    - name: main
-      dag:
-        tasks:
-          - name: submit
-            templateRef:
-              name: argo-hub.argo-workflows.0.0.4
-              template: submit-workflow
-            arguments:
-              parameters:
-                - name: TEMPLATE_NAME
-                  value: 'argo-hub.argo-workflows-utils.0.0.1'
-                - name: ENTRYPOINT
-                  value: 'echo'
+name: report-commits-status-failure
+when: '{{workflow.status}} =~ "Failed|Error"'
+templateRef:
+  name: argo-hub.gitlab.0.0.1
+  template: commit-status
+arguments:
+  parameters:
+    - name: BUILD_BASE_URL
+      value: http://your.argo-workflow
+    - name: REPO_OWNER
+      value: codefresh-io
+    - name: REPO_NAME
+      value: argo-hub
+    - name: REVISION
+      value: sha
+    - name: STATE
+      value: failure
+    - name: CONTEXT
+      value: name
+    - name: DESCRIPTION
+      value: Workflow failed
+    - name: GITLAB_TOKEN_SECRET
+      value: gitlab-token
 ```
