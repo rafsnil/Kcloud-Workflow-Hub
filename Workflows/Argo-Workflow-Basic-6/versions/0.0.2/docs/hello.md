@@ -1,13 +1,14 @@
 INSTRUCTION TO USE THE HELLO TEMPLATE
 
-apiVersion: argoproj.io/v1alpha1
-kind: Workflow
-metadata:
-  generateName: run-template-
-spec:
-  workflowTemplateRef:
-    name: example-template
-  arguments:
-    parameters:
-      - name: message
-        value: "Hello from KloverCloud!"
+```
+name: submit
+templateRef:
+  name: argo-hub.argo-workflows.0.0.4
+  template: submit-workflow
+arguments:
+  parameters:
+    - name: TEMPLATE_NAME_1
+      value: 'argo-hub.argo-workflows-utils.0.0.1'
+    - name: ENTRYPOINT_1
+      value: 'echo'
+```
