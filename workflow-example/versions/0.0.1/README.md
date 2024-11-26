@@ -15,3 +15,9 @@ The workflowTemplate requires permissions on all the argo workflow related CRDs 
 
 1. workflows
 2. workflowtemplates
+
+## Contributors
+
+ 1. name:
+    email:
+    username
