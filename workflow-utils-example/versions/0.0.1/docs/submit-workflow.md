@@ -14,11 +14,11 @@ This is useful in case you want to trigger a new workflowTemplate without having
 * ENTRYPOINT (required) - The specific template to use as an entrypoint
 
 ### Outputs
-no outputs
+Child workflow definition (json format) in `outputs.parameters.codefresh-io-child-workflow-def`
 
 ## Examples
 
-### Submit a workflow
+### Submit a workflow 
 ```
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
@@ -32,7 +32,7 @@ spec:
         tasks:
           - name: submit
             templateRef:
-              name: argo-hub.argo-workflows.0.0.2
+              name: argo-hub.argo-workflows.0.0.4
               template: submit-workflow
             arguments:
               parameters:
