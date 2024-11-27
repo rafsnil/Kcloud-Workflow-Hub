@@ -8,7 +8,7 @@ spec:
     - name: main
       inputs:
         parameters:
-          - name: message-updated
+          - name: message-updated-1
             default: "Hello from Workflow Template!"
       container:
         image: alpine:3.14
