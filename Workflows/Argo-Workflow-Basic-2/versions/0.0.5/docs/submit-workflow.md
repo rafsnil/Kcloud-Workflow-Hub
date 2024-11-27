@@ -16,7 +16,7 @@ This is useful in case you want to trigger a new workflowTemplate without having
 ### Outputs
 Child workflow definition (json format) in `outputs.parameters.codefresh-io-child-workflow-def`
 
-## Examples UPDATED
+## Examples
 
 ### Submit a workflow 
 ```
