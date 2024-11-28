@@ -3,6 +3,7 @@ kind: WorkflowTemplate
 metadata:
   name: argo-hub.argo-workflows.0.0.4
   annotations:
+    klovercloud-workflow-hub/category: 'ARGO'
     argo-hub/version: '0.0.4'
     argo-hub/description: 'Templates that interact with your Argo Workflow instance'
     argo-hub/license: 'MIT'
