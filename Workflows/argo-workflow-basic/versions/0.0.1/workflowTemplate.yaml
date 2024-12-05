@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  annotations:
+    klovercloud-workflow-hub/category: 'ARGO'
+  name: argo-workflow-basic
+spec:
+  entrypoint: hello
+  templates:
+    - name: hello
+      inputs:
+        parameters:
+          - name: message
+            default: "Hello from Workflow Template!"
+      container:
+        image: alpine:3.14
+        command: [echo]
+        args: ["{{inputs.parameters.message}}"]
